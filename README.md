@@ -61,6 +61,10 @@ You actually need to click on the last photo in the listbox to see the number in
 
 
 
+If you can't use your camera with MIIL_DATASET_CREATER_A.py, try MIIL_DATASET_CREATER_B.py
+
+
+
 YoLo用のアノテーションツールです。
 以下が必要となります。
 Python 3.7.1以上
@@ -117,3 +121,7 @@ RIGIONにあるボタンで、写真の回転等が可能です。
 AUTOのついたボタンは、Start PosisionとEnd Position間の写真を全て処理します。
 写真の最終番号がEnd Positionでない場合があるので、注意して下さい。
 実際にリストボックスの最後の写真をクリックして、番号をCurrent Positionで確認する必要があります。
+
+
+
+MIIL_DATASET_CREATER_A.pyでカメラが使えない場合は、MIIL_DATASET_CREATER_B.pyを試して下さい。
