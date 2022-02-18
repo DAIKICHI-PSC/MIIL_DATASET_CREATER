@@ -29,7 +29,7 @@ Create or load a label.
 # 3 #
 Specify the camera ID.
 Normally, 0 is fine.
-#Four#
+# 4 #
 If you want to crop the image to the specified size, check TRIM and specify the width and height.
 # 5 #
 Select DRAW and press the START button.
