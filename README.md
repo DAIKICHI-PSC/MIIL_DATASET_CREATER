@@ -3,12 +3,19 @@ Annotation tool espetially for Yolo2 Yolo3 Yolo4
 
 
 Annotation tool for YoLo.
+
 You will need the following:
+
 Python 3.7.1 and above
+
 PySide2
+
 numpy
+
 cv2
+
 If you have any other required libraries, please install them.
+
 
 
 The following is the flow of creating annotations.
@@ -66,12 +73,19 @@ If you can't use your camera with MIIL_DATASET_CREATER_A.py, try MIIL_DATASET_CR
 
 
 YoLo用のアノテーションツールです。
+
 以下が必要となります。
+
 Python 3.7.1以上
+
 PySide2
+
 numpy
+
 cv2
+
 他に必要なライブラリがあれば、インストールして下さい。
+
 
 
 以下がアノテーションを作成する流れとなります。
