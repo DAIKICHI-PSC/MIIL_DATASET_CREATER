@@ -31,7 +31,7 @@ Specify the camera ID.
 Normally, 0 is fine.
 #Four#
 If you want to crop the image to the specified size, check TRIM and specify the width and height.
-#Five#
+# 5 #
 Select DRAW and press the START button.
 # 6 #
 To trim, place the area to be trimmed in the red frame and press the T key.
