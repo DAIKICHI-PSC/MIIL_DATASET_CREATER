@@ -12,7 +12,7 @@ PySide2
 
 numpy
 
-cv2
+opencv-python
 
 If you have any other required libraries, please install them.
 
