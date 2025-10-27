@@ -78,7 +78,7 @@ YoLo用のアノテーションツールです。
 
 Python 3.7.1以上
 
-PySide2
+PySide6
 
 numpy
 
