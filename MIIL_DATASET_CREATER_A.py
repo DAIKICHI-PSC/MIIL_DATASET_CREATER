@@ -7,7 +7,7 @@ import numpy as np #行列処理用モジュールの読込
 import math as mt #各種計算用モジュールの読込
 import cv2 #画像処理用モジュールの読込
 import glob #ファイルパス一括取得用モジュールの読込
-from PySide2 import QtCore, QtGui, QtWidgets #GUI関連処理用モジュールの読込
+from PySide6 import QtCore, QtGui, QtWidgets #GUI関連処理用モジュールの読込
 from MIIL_DATASET_CREATER_A_GUI import Ui_MainWindow #QT Designerで作成し変換したファイルの読込
 from getRectanglePos import getRectanglePos #２点の何れかが選択領域の開始点（左上）になり、終点（左下）になるか判定し、さらに終点が指定した範囲にあるかるか確認するライブラリ
 from getRotatedRectanglePos import getRotatedRectanglePos #座標回転後の四角内包座取得用モジュールの読込
@@ -132,7 +132,7 @@ def mainLoop():
                     msgbox = QtWidgets.QMessageBox()
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText("Failed to process video.\nPlease change camera ID or camera resolution to capture.") #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                     break
                 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             ##########
@@ -356,7 +356,7 @@ def mainLoop():
                     msgbox = QtWidgets.QMessageBox()
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText("Failed to process video.\nPlease change camera ID or camera resolution to capture.") #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                     break
                 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             ##########
@@ -372,7 +372,7 @@ def mainLoop():
                     msgbox = QtWidgets.QMessageBox()
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText("Failed to process video.\nIf reading from the video is not done, please change camera ID or camera resolution to capture.") #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                     break
                 cvKey = cv2.waitKey(1)
                 if cvKey == 32: ##########KEY SPACE##########
@@ -443,43 +443,43 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
         self.ui.listWidget2.currentRowChanged.connect(self.listWidget2_changed) #listWidget2_changedは任意（新方式）
         self.ui.comboBox1.currentIndexChanged.connect(self.comboBox1_changed) #comboBox1_changedは任意
         self.ui.checkBox1.clicked.connect(self.checkBox1_clicked) #checkBox1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton1, QtCore.SIGNAL("clicked()"), self.pushButton1_clicked) #pushButton1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton2, QtCore.SIGNAL("clicked()"), self.pushButton2_clicked) #pushButton2_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton3, QtCore.SIGNAL("clicked()"), self.pushButton3_clicked) #pushButton1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton4, QtCore.SIGNAL("clicked()"), self.pushButton4_clicked) #pushButton2_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton5, QtCore.SIGNAL("clicked()"), self.pushButton5_clicked) #pushButton1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton6, QtCore.SIGNAL("clicked()"), self.pushButton6_clicked) #pushButton2_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton7, QtCore.SIGNAL("clicked()"), self.pushButton7_clicked) #pushButton7_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton8, QtCore.SIGNAL("clicked()"), self.pushButton8_clicked) #pushButton8_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton9, QtCore.SIGNAL("clicked()"), self.pushButton9_clicked) #pushButton9_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton10, QtCore.SIGNAL("clicked()"), self.pushButton10_clicked) #pushButton10_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton11, QtCore.SIGNAL("clicked()"), self.pushButton11_clicked) #pushButton11_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton12, QtCore.SIGNAL("clicked()"), self.pushButton12_clicked) #pushButton12_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton13, QtCore.SIGNAL("clicked()"), self.pushButton13_clicked) #pushButton13_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton14, QtCore.SIGNAL("clicked()"), self.pushButton14_clicked) #pushButton14_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton15, QtCore.SIGNAL("clicked()"), self.pushButton15_clicked) #pushButton15_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton16, QtCore.SIGNAL("clicked()"), self.pushButton16_clicked) #pushButton16_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton17, QtCore.SIGNAL("clicked()"), self.pushButton17_clicked) #pushButton17_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton18, QtCore.SIGNAL("clicked()"), self.pushButton18_clicked) #pushButton18_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton19, QtCore.SIGNAL("clicked()"), self.pushButton19_clicked) #pushButton19_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton20, QtCore.SIGNAL("clicked()"), self.pushButton20_clicked) #pushButton20_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton21, QtCore.SIGNAL("clicked()"), self.pushButton21_clicked) #pushButton21_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton22, QtCore.SIGNAL("clicked()"), self.pushButton22_clicked) #pushButton22_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton23, QtCore.SIGNAL("clicked()"), self.pushButton23_clicked) #pushButton23_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton24, QtCore.SIGNAL("clicked()"), self.pushButton24_clicked) #pushButton24_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton25, QtCore.SIGNAL("clicked()"), self.pushButton25_clicked) #pushButton25_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton26, QtCore.SIGNAL("clicked()"), self.pushButton26_clicked) #pushButton26_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton27, QtCore.SIGNAL("clicked()"), self.pushButton27_clicked) #pushButton27_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton28, QtCore.SIGNAL("clicked()"), self.pushButton28_clicked) #pushButton28_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton29, QtCore.SIGNAL("clicked()"), self.pushButton29_clicked) #pushButton29_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton30, QtCore.SIGNAL("clicked()"), self.pushButton30_clicked) #pushButton30_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton31, QtCore.SIGNAL("clicked()"), self.pushButton31_clicked) #pushButton31_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton32, QtCore.SIGNAL("clicked()"), self.pushButton32_clicked) #pushButton32_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton33, QtCore.SIGNAL("clicked()"), self.pushButton33_clicked) #pushButton33_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton34, QtCore.SIGNAL("clicked()"), self.pushButton34_clicked) #pushButton34_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton35, QtCore.SIGNAL("clicked()"), self.pushButton35_clicked) #pushButton35_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton36, QtCore.SIGNAL("clicked()"), self.pushButton36_clicked) #pushButton36_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton37, QtCore.SIGNAL("clicked()"), self.pushButton37_clicked) #pushButton37_clickedは任意
+        self.ui.pushButton1.clicked.connect(self.pushButton1_clicked) #pushButton1_clickedは任意
+        self.ui.pushButton2.clicked.connect(self.pushButton2_clicked) #pushButton2_clickedは任意
+        self.ui.pushButton3.clicked.connect(self.pushButton3_clicked) #pushButton1_clickedは任意
+        self.ui.pushButton4.clicked.connect(self.pushButton4_clicked) #pushButton2_clickedは任意
+        self.ui.pushButton5.clicked.connect(self.pushButton5_clicked) #pushButton1_clickedは任意
+        self.ui.pushButton6.clicked.connect(self.pushButton6_clicked) #pushButton2_clickedは任意
+        self.ui.pushButton7.clicked.connect(self.pushButton7_clicked) #pushButton7_clickedは任意
+        self.ui.pushButton8.clicked.connect(self.pushButton8_clicked) #pushButton8_clickedは任意
+        self.ui.pushButton9.clicked.connect(self.pushButton9_clicked) #pushButton9_clickedは任意
+        self.ui.pushButton10.clicked.connect(self.pushButton10_clicked) #pushButton10_clickedは任意
+        self.ui.pushButton11.clicked.connect(self.pushButton11_clicked) #pushButton11_clickedは任意
+        self.ui.pushButton12.clicked.connect(self.pushButton12_clicked) #pushButton12_clickedは任意
+        self.ui.pushButton13.clicked.connect(self.pushButton13_clicked) #pushButton13_clickedは任意
+        self.ui.pushButton14.clicked.connect(self.pushButton14_clicked) #pushButton14_clickedは任意
+        self.ui.pushButton15.clicked.connect(self.pushButton15_clicked) #pushButton15_clickedは任意
+        self.ui.pushButton16.clicked.connect(self.pushButton16_clicked) #pushButton16_clickedは任意
+        self.ui.pushButton17.clicked.connect(self.pushButton17_clicked) #pushButton17_clickedは任意
+        self.ui.pushButton18.clicked.connect(self.pushButton18_clicked) #pushButton18_clickedは任意
+        self.ui.pushButton19.clicked.connect(self.pushButton19_clicked) #pushButton19_clickedは任意
+        self.ui.pushButton20.clicked.connect(self.pushButton20_clicked) #pushButton20_clickedは任意
+        self.ui.pushButton21.clicked.connect(self.pushButton21_clicked) #pushButton21_clickedは任意
+        self.ui.pushButton22.clicked.connect(self.pushButton22_clicked) #pushButton22_clickedは任意
+        self.ui.pushButton23.clicked.connect(self.pushButton23_clicked) #pushButton23_clickedは任意
+        self.ui.pushButton24.clicked.connect(self.pushButton24_clicked) #pushButton24_clickedは任意
+        self.ui.pushButton25.clicked.connect(self.pushButton25_clicked) #pushButton25_clickedは任意
+        self.ui.pushButton26.clicked.connect(self.pushButton26_clicked) #pushButton26_clickedは任意
+        self.ui.pushButton27.clicked.connect(self.pushButton27_clicked) #pushButton27_clickedは任意
+        self.ui.pushButton28.clicked.connect(self.pushButton28_clicked) #pushButton28_clickedは任意
+        self.ui.pushButton29.clicked.connect(self.pushButton29_clicked) #pushButton29_clickedは任意
+        self.ui.pushButton30.clicked.connect(self.pushButton30_clicked) #pushButton30_clickedは任意
+        self.ui.pushButton31.clicked.connect(self.pushButton31_clicked) #pushButton31_clickedは任意
+        self.ui.pushButton32.clicked.connect(self.pushButton32_clicked) #pushButton32_clickedは任意
+        self.ui.pushButton33.clicked.connect(self.pushButton33_clicked) #pushButton33_clickedは任意
+        self.ui.pushButton34.clicked.connect(self.pushButton34_clicked) #pushButton34_clickedは任意
+        self.ui.pushButton35.clicked.connect(self.pushButton35_clicked) #pushButton35_clickedは任意
+        self.ui.pushButton36.clicked.connect(self.pushButton36_clicked) #pushButton36_clickedは任意
+        self.ui.pushButton37.clicked.connect(self.pushButton37_clicked) #pushButton37_clickedは任意
 
 #=====ウィジットのシグナル処理用メッソド========================================
     #-----checkBox1用イベント処理----------------------------------------
@@ -494,19 +494,19 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MDC")
                 msgbox.setText("Need digits.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
                 self.ui.checkBox1.setChecked(False) #チェックを外す
             elif int(tw) < 100 or int(th) < 100:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MDC")
                 msgbox.setText("Value should be more than 100.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
                 self.ui.checkBox1.setChecked(False) #チェックを外す
             #elif int(tw) > CapWidth or int(th) > CapHeight:
                 #msgbox = QtWidgets.QMessageBox(self)
                 #msgbox.setWindowTitle("MDC")
                 #msgbox.setText("value should be less than the source size.") #メッセージボックスのテキストを設定
-                #ret = msgbox.exec_() #メッセージボックスを表示
+                #ret = msgbox.exec() #メッセージボックスを表示
                 #self.ui.checkBox1.setChecked(False) #チェックを外す
             else:
                 self.ui.lineEdit4.setEnabled(False)
@@ -554,13 +554,13 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MDC")
                         msgbox.setText("Something is wrong with setting data.") #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     #####
             else:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MDC")
                 msgbox.setText("Something is wrong with picture data.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
 
     #-----comboBox1用イベント処理----------------------------------------
     def comboBox1_changed(self):
@@ -590,39 +590,39 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText("Please set a picture folder path.") #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif self.ui.radioButton2.isChecked() == True and currentListIndex2 == -1: #FileNum == 0:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No file in the directory.") #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif self.ui.radioButton2.isChecked() == True and currentListIndex == -1:
             msgbox = QtWidgets.QMessageBox() #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No label selected.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
         elif self.ui.radioButton3.isChecked() == True and self.ui.lineEdit3.text() == "":
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText("Please set a video file name to save.") #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif self.ui.radioButton4.isChecked() == True and self.ui.lineEdit3.text() == "":
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText("Please open a movie file.") #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif self.ui.radioButton1.isChecked() == True and self.ui.checkBox1.isChecked() == True:
             if int(tw) > CapWidth or int(th) > CapHeight:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MDC")
                 msgbox.setText("Triming size should be less than the source size.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
         elif self.ui.radioButton4.isChecked() == True and self.ui.checkBox1.isChecked() == True:
             if int(tw) > CapWidth or int(th) > CapHeight:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MDC")
                 msgbox.setText("Triming size should be less than the source size.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
         else:
             self.ui.pushButton1.setEnabled(False)
             self.ui.pushButton2.setEnabled(True)
@@ -698,7 +698,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText("Set frame rate to 20.") #####メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #####メッセージボックスを表示
+                    ret = msgbox.exec() #####メッセージボックスを表示
                     aviOut = cv2.VideoWriter(self.ui.lineEdit3.text(), fourcc, 20, (CapWidth, CapHeight))
             elif self.ui.radioButton4.isChecked() == True:
                 #cap = cv2.VideoCapture(0)
@@ -857,12 +857,12 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                 os.mkdir(SettingDataDir)
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setText(DN[1] + '_setting directory created.') #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
             if os.path.isdir(AnnotationDir) == False:
                 os.mkdir(AnnotationDir)
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setText(DN[1] + '_annotation directory created.') #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
             NumList = [] #ファイルの連番名記憶用リスト
             FileList = glob.glob(DirPath + '/*.jpg') #フォルダ内の各ファイルパスをリスト形式で取得
             for FN in FileList: 
@@ -918,7 +918,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No item in the list.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
             return
         filepath, _ = QtWidgets.QFileDialog.getSaveFileName(self, "Save File", "",'lab File (*.lab)')
         if filepath:
@@ -937,7 +937,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("FILE : Saved.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
             #####
     #####
 
@@ -948,7 +948,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No text to add.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
         else:
             self.ui.listWidget1.addItem(self.ui.lineEdit2.text())
             self.ui.listWidget1.setCurrentRow(0)
@@ -962,7 +962,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No item selected.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
         else:
             self.ui.listWidget1.takeItem(currentListIndex)
     #####
@@ -989,7 +989,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self) #####メッセージボックスを準備
             msgbox.setWindowTitle("MDC")
             msgbox.setText("No item selected.") #####メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #####メッセージボックスを表示
+            ret = msgbox.exec() #####メッセージボックスを表示
         else:
             fName = self.ui.listWidget2.currentItem().text()
             self.ui.listWidget2.takeItem(currentListIndex)
@@ -1026,12 +1026,12 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('No item in the list.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                 #elif cn.isdigit() == False:
                     #msgbox = QtWidgets.QMessageBox(self)
                     #msgbox.setWindowTitle("MDC")
                     #msgbox.setText('Please input digits.') #メッセージボックスのテキストを設定
-                    #ret = msgbox.exec_() #メッセージボックスを表示         
+                    #ret = msgbox.exec() #メッセージボックスを表示         
                 else:
                     rnFlag = 1
                     iNum = int(cn)
@@ -1120,7 +1120,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('Reumbering done.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
 
     #-----pushButton12用イベント処理----------------------------------------
     def pushButton12_clicked(self):
@@ -1171,7 +1171,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('Reumbering done.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                 #####
 
     #-----pushButton13用イベント処理----------------------------------------
@@ -1215,32 +1215,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1276,32 +1276,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1370,7 +1370,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                                     msgbox = QtWidgets.QMessageBox()
                                     msgbox.setWindowTitle("MDC")
                                     msgbox.setText("Done.") #メッセージボックスのテキストを設定
-                                    ret = msgbox.exec_() #メッセージボックスを表示
+                                    ret = msgbox.exec() #メッセージボックスを表示
                                     break
 
     #-----pushButton18用イベント処理----------------------------------------
@@ -1394,32 +1394,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1479,7 +1479,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                             msgbox = QtWidgets.QMessageBox(self)
                             msgbox.setWindowTitle("MDC")
                             msgbox.setText('Resizing done.') #メッセージボックスのテキストを設定
-                            ret = msgbox.exec_() #メッセージボックスを表示
+                            ret = msgbox.exec() #メッセージボックスを表示
                     if text == "INPUT PERCENTAGE":
                         percentage, buttonState = QtWidgets.QInputDialog.getInt(self, "MDC", "Please input percentage to resize the pictures.", 50, 10, 200, 10)
                         if buttonState:
@@ -1509,7 +1509,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                             msgbox = QtWidgets.QMessageBox(self)
                             msgbox.setWindowTitle("MDC")
                             msgbox.setText('Resizing done.') #メッセージボックスのテキストを設定
-                            ret = msgbox.exec_() #メッセージボックスを表示
+                            ret = msgbox.exec() #メッセージボックスを表示
                     if text == "INPUT SIZE":
                         width, buttonState = QtWidgets.QInputDialog.getInt(self, "MDC", "Please input width to resize the pictures.", 608, 1, 99999, 1)
                         if buttonState:
@@ -1540,7 +1540,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                                 msgbox = QtWidgets.QMessageBox(self)
                                 msgbox.setWindowTitle("MDC")
                                 msgbox.setText('Resizing done.') #メッセージボックスのテキストを設定
-                                ret = msgbox.exec_() #メッセージボックスを表示
+                                ret = msgbox.exec() #メッセージボックスを表示
             #####
 
     #-----pushButton21用イベント処理----------------------------------------
@@ -1583,32 +1583,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1662,7 +1662,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('JPEG file not found in the folder.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                 else:
                     degree, buttonState = QtWidgets.QInputDialog.getItem(self, "MDC", "Please choose dgrees to rotate the pictures.", ["1", "2", "3", "4", "5", "8", "10", "15", "30", "60", "90", "120", "180"], 2, False)
                     if buttonState:
@@ -1682,32 +1682,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1722,7 +1722,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MDC")
                         msgbox.setText('JPEG file not found in the folder.') #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     else:
                         degree, buttonState = QtWidgets.QInputDialog.getItem(self, "MDC", "Please choose dgrees to rotate the pictures.", ["1", "2", "3", "4", "5", "8", "10", "15", "30", "60", "90", "120", "180"], 2, False)
                         if buttonState:
@@ -1763,32 +1763,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1832,32 +1832,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1896,7 +1896,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('JPEG file not found in the folder.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                 else:
                     degree, buttonState = QtWidgets.QInputDialog.getItem(self, "MDC", "Please choose dgrees to rotate the pictures.", ["1", "2", "3", "4", "5", "8", "10", "15", "30", "60", "90", "120", "180"], 2, False)
                     if buttonState:
@@ -1916,32 +1916,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -1956,7 +1956,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MDC")
                         msgbox.setText('JPEG file not found in the folder.') #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     else:
                         degree, buttonState = QtWidgets.QInputDialog.getItem(self, "MDC", "Please choose dgrees to rotate the pictures.", ["1", "2", "3", "4", "5", "8", "10", "15", "30", "60", "90", "120", "180"], 2, False)
                         if buttonState:
@@ -1988,7 +1988,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText('JPEG file not found in the folder.') #メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #メッセージボックスを表示
+                    ret = msgbox.exec() #メッセージボックスを表示
                 else:
                     rate, buttonState = QtWidgets.QInputDialog.getItem(self, "MDC", "Please choose frame rate.", ["1", "2", "3", "4", "5", "10", "20", "30", "60", "120", "144", "240"], 4, False)
                     if buttonState:
@@ -2016,7 +2016,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MDC")
                         msgbox.setText('Video file created.') #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
 
     #-----pushButton32用イベント処理----------------------------------------
     def pushButton32_clicked(self):
@@ -2041,32 +2041,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -2112,32 +2112,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -2181,32 +2181,32 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('No file in the directory.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif SP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for start position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif EP.isdigit() == False:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Please input digit for end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > int(EP):
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than end position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(SP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('Start position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         elif int(EP) > self.ui.listWidget2.count() - 1:
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MDC")
             msgbox.setText('End position should be equal or smaller than max picture position.') #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             SP = int(SP)
             EP = int(EP) + 1
@@ -2903,7 +2903,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
         if os.path.isfile(xFile):
             shutil.copyfile(xFile, AnnotationDir + '/' + str(FileNum) +'.xml')
         if os.path.isfile(tFile):
-            shutil.copyfile(xFile, DirPath + '/' + str(FileNum) +'.txt')
+            shutil.copyfile(tFile, DirPath + '/' + str(FileNum) +'.txt')
         self.ui.listWidget2.addItem(str(FileNum))
         self.ui.listWidget2.setCurrentRow(self.ui.listWidget2.count() - 1)
         FileNum += 1
@@ -3584,7 +3584,7 @@ def onInput(event, x, y, flags, param):
                     msgbox = QtWidgets.QMessageBox() #####メッセージボックスを準備
                     msgbox.setWindowTitle("MDC")
                     msgbox.setText("The region width and height must be greater than 10 pixel.") #####メッセージボックスのテキストを設定
-                    ret = msgbox.exec_() #####メッセージボックスを表示
+                    ret = msgbox.exec() #####メッセージボックスを表示
         #マウスボタンが移動した時の処理
         elif event == cv2.EVENT_MOUSEMOVE:
             if sStartFlag == 1:
@@ -3602,4 +3602,4 @@ if __name__ == '__main__': #C言語のmain()に相当。このファイルが実
     app = QtWidgets.QApplication(sys.argv) #アプリケーションオブジェクト作成（sys.argvはコマンドライン引数のリスト）
     win = MainWindow1() #MainWindow1クラスのインスタンスを作成
     win.show() #ウィンドウを表示　win.showFullScreen()やwin.showEvent()を指定する事でウィンドウの状態を変える事が出来る
-    sys.exit(app.exec_()) #引数が関数の場合は、関数が終了するまで待ち、その関数の返値を上位プロセスに返す
+    sys.exit(app.exec()) #引数が関数の場合は、関数が終了するまで待ち、その関数の返値を上位プロセスに返す
